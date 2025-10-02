@@ -1,0 +1,69 @@
+/* Custom styles for the Subprijn website */
+html {
+  scroll-behavior: smooth;
+}
+
+#root {
+  margin: 0;
+  padding: 0;
+}
+
+/* Smooth animations */
+* {
+  transition: all 0.3s ease;
+}
+
+/* Subtle hover lift effect */
+.hover\:shadow-xl:hover {
+  transform: translateY(-2px);
+}
+
+/* Bouncing animation for phone button - smooth and symmetrical */
+@keyframes bounce-slow {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-2rem);
+  }
+}
+
+.animate-bounce-slow {
+  animation: bounce-slow 1s ease-in-out infinite;
+}
+
+/* Logo styling - blend with background and remove white */
+.logo-blend {
+  mix-blend-mode: multiply;
+  filter: brightness(1.1) contrast(1.05);
+  /* Alternative: For removing white background completely */
+  /* background-blend-mode: darken; */
+  /* For a softer look, uncomment below: */
+  /* opacity: 0.95; */
+}
+
+/* If logo has pure white background, this will help: */
+@supports (mix-blend-mode: multiply) {
+  .logo-blend {
+    background: transparent;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #fff5f7;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, #ec4899, #f97316);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(to bottom, #db2777, #ea580c);
+}
