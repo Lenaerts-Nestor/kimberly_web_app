@@ -7,7 +7,7 @@ export function HeroSection() {
       <div className="flex flex-col items-center text-center">
         {/* Logo with Glow Effect */}
         <div className="relative mb-6">
-          <div className="absolute inset-0 bg-gradient-to-r from-pink-400 to-orange-400 rounded-full blur-2xl opacity-20 animate-pulse"></div>
+          <div className="absolute inset-0  rounded-full blur-2xl opacity-20 animate-pulse"></div>
           <img
             src="/Kimberly Logo.jpg"
             alt="Subprijn by Kimberly"
