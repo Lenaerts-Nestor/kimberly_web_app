@@ -25,28 +25,73 @@ html {
     transform: translateY(0);
   }
   50% {
-    transform: translateY(-2rem);
+    transform: translateY(-10px);
   }
 }
 
 .animate-bounce-slow {
-  animation: bounce-slow 1s ease-in-out infinite;
+  animation: bounce-slow 2s ease-in-out infinite;
+}
+
+/* Pulse animation for sparkles */
+@keyframes pulse {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 0.8;
+  }
+}
+
+.animate-pulse {
+  animation: pulse 2s ease-in-out infinite;
 }
 
 /* Logo styling - blend with background and remove white */
 .logo-blend {
   mix-blend-mode: multiply;
   filter: brightness(1.1) contrast(1.05);
-  /* Alternative: For removing white background completely */
-  /* background-blend-mode: darken; */
-  /* For a softer look, uncomment below: */
-  /* opacity: 0.95; */
 }
 
-/* If logo has pure white background, this will help: */
 @supports (mix-blend-mode: multiply) {
   .logo-blend {
     background: transparent;
+  }
+}
+
+/* Carousel slide animations */
+@keyframes slideInRight {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideOutLeft {
+  from {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+}
+
+/* Smooth fade transition */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
   }
 }
 
@@ -66,4 +111,47 @@ html {
 
 ::-webkit-scrollbar-thumb:hover {
   background: linear-gradient(to bottom, #db2777, #ea580c);
+}
+
+/* Prevent horizontal scroll */
+body {
+  overflow-x: hidden;
+}
+
+/* Touch-friendly mobile interactions */
+@media (max-width: 768px) {
+  * {
+    -webkit-tap-highlight-color: rgba(236, 72, 153, 0.2);
+  }
+
+  button,
+  a {
+    touch-action: manipulation;
+  }
+}
+
+/* Smooth transitions for cards */
+.transition-all {
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 300ms;
+}
+
+/* Gradient text animation */
+@keyframes gradient-shift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.bg-clip-text {
+  -webkit-background-clip: text;
+  background-clip: text;
+  background-size: 200% auto;
 }
